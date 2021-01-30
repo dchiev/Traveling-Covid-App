@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container'
+import Jumbotron from 'react-bootstrap/Jumbotron'
 
 class Landing extends Component {
   render() {
@@ -7,12 +9,14 @@ class Landing extends Component {
       <div style={{ height: "75vh"}} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
-              Hello, Welcome to <b>Safe Travels!</b> 
-            </h4>
-            <p className="flow-text grey-text text-darken-1">
-              A web search application to travel internationally without covid-19. 
-            </p>
+            <Jumbotron fluid>
+              <Container>
+                <h1>Safe Travels</h1>
+                <p>
+                   This is a web application to see which coountrys are okay to travel to avoid.
+                </p>
+              </Container>
+            </Jumbotron>
             
             <br />
             <div className="col s6">
