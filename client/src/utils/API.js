@@ -7,6 +7,7 @@ const queryURL2 = "https://www.trackcorona.live/api/countries/" + countrySearch;
 
 export default {
   findCountry: function () {
-    return axios.get(BASEURL);
+    return axios.get(queryURL1);
+    return axios.get(queryURL2);
   },
 };
