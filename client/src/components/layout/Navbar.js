@@ -10,15 +10,15 @@ class Navbar extends Component {
     return (
     
       <Nav
-        activeKey="/home" className="justify-content-left" 
+        activeKey="/home" className="justify-content-center" 
         onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
       >
         
         <Nav.Item>
-          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/home" size="lg">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item className="justify-content-center">
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
+          <Nav.Link eventKey="link-1" size="lg">Link</Nav.Link>
         </Nav.Item>
         <Nav.Item className="justify-content-center">
           <Nav.Link eventKey="link-2">Forum</Nav.Link>
