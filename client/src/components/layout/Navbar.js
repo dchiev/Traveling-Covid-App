@@ -1,24 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
-          <div className="nav-wrapper white">
-            <Link
-              to="/"
-              style={{ fontFamily: "monospace" }}
-              className="col s5 brand-logo center black-text"
-            >
-              <i className="material-icons">code</i>
-              MERN JWT Auth
-            </Link>
-          </div>
-        </nav>
-      </div>
+      <Nav
+        activeKey="/home"
+        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+      >
+        <Nav.Item>
+          <Nav.Link href="/home">Active</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-1">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link-2">Link</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="disabled" disabled>
+            Disabled
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
     );
   }
 }
-
 export default Navbar;
