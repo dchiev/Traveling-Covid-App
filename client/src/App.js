@@ -40,7 +40,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="App">
+        <div className="App" style={{backgroundImage: "url(/images/worldmap.png)", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "cover"}}>
           <Navbar />
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
