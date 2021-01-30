@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import Search from "./Search";
 
 class Dashboard extends Component {
   onLogoutClick = (e) => {
@@ -20,10 +21,11 @@ class Dashboard extends Component {
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
                 You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN JWT Auth</span> app 👏
+                <span style={{ fontFamily: "monospace" }}>MERN JWT Auth</span>{" "}
+                app 👏
               </p>
             </h4>
-
+            <Search />
             <button
               style={{
                 width: "150px",
