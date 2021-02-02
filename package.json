@@ -38,6 +38,7 @@
     "mongoose": "^5.9.10",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "root": "^3.2.0",
     "validator": "^13.0.0"
   },
   "devDependencies": {
