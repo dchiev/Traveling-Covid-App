@@ -1,4 +1,6 @@
 import React from "react";
+import API from "../../utils/API"
+
 class search extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,7 @@ class search extends React.Component {
   addValue(evt) {
     evt.preventDefault();
     if (this.state.value !== undefined) {
+      API.findCountry(this.state.value).then(response => console.log(response))
       console.log("Your input value is: " + this.state.value);
     }
   }
