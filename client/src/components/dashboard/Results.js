@@ -2,7 +2,7 @@ import React from "react";
 
 function Results(props) {
   const sort = () => {
-    props.setCountry();
+    props.recommendations();
   };
 
   return (
@@ -10,7 +10,7 @@ function Results(props) {
       <tbody>
         {props.results.map((country) => (
           <tr>
-            <td>{country.data.message}</td>
+            <td></td>
           </tr>
         ))}
       </tbody>

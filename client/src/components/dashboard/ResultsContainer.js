@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import API from "../../utils/API";
 
-function ResultsContainer() {
+function ResultsContainer(props) {
   const [searchCountry, setCountry] = useState([]);
   useEffect(() => {
     console.log("mounted");
@@ -16,7 +16,7 @@ function ResultsContainer() {
 
   return (
     <div>
-      <Results results={searchCountry} setCountry={setCountry} />
+      <Results results={props.recommendations} setCountry={setCountry} />
     </div>
   );
 }
