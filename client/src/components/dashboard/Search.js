@@ -20,10 +20,12 @@ class search extends React.Component {
         /* console.log(response); */
         console.log(this.state.recomendations);
       });
-      API.findCountry2(this.state.value).then(
-        (response) => console.log(response)
-        /* cases: r */
-      );
+      API.findCountry2(this.state.value).then((response) => {
+        /* (response) => console.log(response) */
+        this.setState({
+          cases: response.data[0],
+        });
+      });
       console.log("Your input value is: " + this.state.value);
     }
   }
@@ -38,7 +40,7 @@ class search extends React.Component {
         <br />
         <ResultsContainer
           recomendations={this.state.recomendations}
-          /*  cases={this.state.} */
+          cases={this.state.cases}
         />
         <br />
         <input type="submit" value="Submit" />

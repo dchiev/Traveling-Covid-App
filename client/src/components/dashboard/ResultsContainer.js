@@ -33,6 +33,8 @@ function ResultsContainer(props) {
             textClassName="white-text"
             title={props.recomendations}
           >
+            {" "}
+            <h2>{props.cases}</h2>
             {/*  {props.results.map(countryInfo) => (
       <h2>Country:{countryInfo.} </h2>
     )} */}
