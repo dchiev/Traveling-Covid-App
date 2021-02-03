@@ -7,13 +7,7 @@ function Results(props) {
 
   return (
     <table className="table">
-      <tbody>
-        {props.results.map((country) => (
-          <tr>
-            <td></td>
-          </tr>
-        ))}
-      </tbody>
+      <tbody></tbody>
     </table>
   );
 }
