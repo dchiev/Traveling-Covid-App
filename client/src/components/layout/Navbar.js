@@ -14,8 +14,8 @@ class Navbar extends Component {
       
     
       <nav>
-    <div className="nav-wrapper">
-      <a href="#!" className="brand-logo center">Logo</a>
+    <div className="nav-wrapper blue">
+      <a href="#!" className="brand-logo center">Safe Travels</a>
       <ul className="left hide-on-med-and-down">
         <li><a href="sass.html">Home</a></li>
         <li><a href="badges.html">Components</a></li>
