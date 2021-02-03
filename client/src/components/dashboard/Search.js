@@ -5,7 +5,7 @@ import ResultsContainer from "./ResultsContainer";
 class search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", recomendations: "" };
     this.addValue = this.addValue.bind(this);
     this.updateInput = this.updateInput.bind(this);
   }
@@ -14,10 +14,15 @@ class search extends React.Component {
     evt.preventDefault();
     if (this.state.value !== undefined) {
       API.findCountry1(this.state.value).then((response) => {
-        this.setState({ recomendations: response });
+        this.setState({
+          recomendations: response.data.data.US.advisory.message,
+        });
+        /* console.log(response); */
+        console.log(this.state.recomendations);
       });
-      API.findCountry2(this.state.value).then((response) =>
-        console.log(response)
+      API.findCountry2(this.state.value).then(
+        (response) => console.log(response)
+        /* cases: r */
       );
       console.log("Your input value is: " + this.state.value);
     }
@@ -31,7 +36,10 @@ class search extends React.Component {
       <form onSubmit={this.addValue}>
         <input type="text" onChange={this.updateInput} />
         <br />
-        <ResultsContainer recommendations={this.state.recommendations} />
+        <ResultsContainer
+          recomendations={this.state.recomendations}
+          /*  cases={this.state.} */
+        />
         <br />
         <input type="submit" value="Submit" />
       </form>
