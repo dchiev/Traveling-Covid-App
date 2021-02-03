@@ -1,5 +1,6 @@
 import React from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import ResultsContainer from "./ResultsContainer";
 
 class search extends React.Component {
   constructor(props) {
@@ -12,7 +13,12 @@ class search extends React.Component {
   addValue(evt) {
     evt.preventDefault();
     if (this.state.value !== undefined) {
-      API.findCountry(this.state.value).then(response => console.log(response))
+      API.findCountry1(this.state.value).then((response) => {
+        this.setState({ recomendations: response });
+      });
+      API.findCountry2(this.state.value).then((response) =>
+        console.log(response)
+      );
       console.log("Your input value is: " + this.state.value);
     }
   }
@@ -25,6 +31,7 @@ class search extends React.Component {
       <form onSubmit={this.addValue}>
         <input type="text" onChange={this.updateInput} />
         <br />
+        <ResultsContainer recommendations={this.state.recommendations} />
         <br />
         <input type="submit" value="Submit" />
       </form>
