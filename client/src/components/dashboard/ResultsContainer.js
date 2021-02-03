@@ -1,11 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
 import API from "../../utils/API";
+import Results from "./Results";
 
 function ResultsContainer(props) {
   const [searchCountry, setCountry] = useState([]);
   useEffect(() => {
     console.log("mounted");
-    API.findCountry()
+    API.findCountry1()
       .then((results) => setCountry(results.data.data))
       .catch((err) => console.log(err));
   }, []);
