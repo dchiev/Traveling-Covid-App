@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import API from "../../utils/API";
+import Results from "./Results";
 
 function ResultsContainer(props) {
   const [searchCountry, setCountry] = useState([]);
