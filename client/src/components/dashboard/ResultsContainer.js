@@ -22,7 +22,7 @@ function ResultsContainer(props) {
   };
   /*  let searchCountry = "US";
   console.log(test.data[searchCountry].advisory.message); */
-  const adMessage = props.recomendations;
+  const recomendations = props.recomendations;
   const searchCountry = props.searchCountry;
   const [setCountry] = useState([]);
   useEffect(() => {
@@ -51,9 +51,7 @@ function ResultsContainer(props) {
             revealIcon={<Icon>more_vert</Icon>}
             textClassName="white-text"
             title={
-              adMessage[searchCountry] === undefined
-                ? "No title"
-                : adMessage.data[searchCountry].advisory.message
+              !recomendations ? "No title" : recomendations.advisory.message
             }
 
             /*    title={props.recomendations} */
