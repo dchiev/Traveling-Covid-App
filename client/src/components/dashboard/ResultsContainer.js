@@ -4,8 +4,27 @@ import Results from "./Results";
 import { Card, Row, Col, Icon } from "react-materialize";
 
 function ResultsContainer(props) {
+  const test = {
+    data: {
+      US: {
+        name: "United States",
+        advisory: {
+          message: "test US message",
+        },
+      },
+      MX: {
+        name: "Mexico",
+        advisory: {
+          message: "test MX message",
+        },
+      },
+    },
+  };
+  /*  let searchCountry = "US";
+  console.log(test.data[searchCountry].advisory.message); */
   const adMessage = props.recomendations;
-  const [searchCountry, setCountry] = useState([]);
+  const searchCountry = props.searchCountry;
+  const [setCountry] = useState([]);
   useEffect(() => {
     console.log("mounted");
   }, []);
@@ -31,7 +50,13 @@ function ResultsContainer(props) {
             closeIcon={<Icon>close</Icon>}
             revealIcon={<Icon>more_vert</Icon>}
             textClassName="white-text"
-            title={props.recomendations}
+            title={
+              adMessage[searchCountry] === undefined
+                ? "No title"
+                : adMessage.data[searchCountry].advisory.message
+            }
+
+            /*    title={props.recomendations} */
           >
             {" "}
             <h2>{props.cases}</h2>

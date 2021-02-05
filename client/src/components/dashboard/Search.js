@@ -15,7 +15,7 @@ class search extends React.Component {
     if (this.state.value !== undefined) {
       API.findCountry1(this.state.value).then((response) => {
         this.setState({
-          recomendations: response.data.data.US.advisory.message,
+          recomendations: response.data.data[this.state.value],
         });
         /* console.log(response); */
         console.log(this.state.recomendations);
@@ -40,6 +40,7 @@ class search extends React.Component {
         <br />
         <ResultsContainer
           recomendations={this.state.recomendations}
+          searchCountry={this.state.value}
           cases={this.state.cases}
         />
         <br />
