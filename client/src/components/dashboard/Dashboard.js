@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { DiscussionEmbed } from "disqus-react";
 import Search from "./Search";
 
 class Dashboard extends Component {
@@ -24,6 +25,15 @@ class Dashboard extends Component {
               </p>
             </h4>
             <Search />
+            <DiscussionEmbed
+              shortname="covidtraveling"
+              config={{
+                url: "http://localhost:3000",
+                identifier: "article-id",
+                title: "Title of Your Article",
+                language: "en_US", //e.g. for Traditional Chinese (Taiwan)
+              }}
+            />
             <button
               style={{
                 width: "150px",

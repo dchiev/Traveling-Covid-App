@@ -4,7 +4,7 @@ import Results from "./Results";
 import { Card, Row, Col, Icon } from "react-materialize";
 
 function ResultsContainer(props) {
-  const test = {
+  /*   const test = {
     data: {
       US: {
         name: "United States",
@@ -19,11 +19,11 @@ function ResultsContainer(props) {
         },
       },
     },
-  };
+  }; */
   /*  let searchCountry = "US";
   console.log(test.data[searchCountry].advisory.message); */
-  const recomendations = props.recomendations;
-  const searchCountry = props.searchCountry;
+
+  const { cases, searchCountry, recomendations } = props;
   const [setCountry] = useState([]);
   useEffect(() => {
     console.log("mounted");
@@ -57,7 +57,7 @@ function ResultsContainer(props) {
             /*    title={props.recomendations} */
           >
             {" "}
-            <h2>{props.cases}</h2>
+            <h2>{cases?.confirmed || "Search for your Country"}</h2>
             {/*  {props.results.map(countryInfo) => (
       <h2>Country:{countryInfo.} </h2>
     )} */}

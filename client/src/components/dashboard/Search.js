@@ -21,9 +21,10 @@ class search extends React.Component {
         console.log(this.state.recomendations);
       });
       API.findCountry2(this.state.value).then((response) => {
+        console.log("second api", response);
         /* (response) => console.log(response) */
         this.setState({
-          cases: response.data[0],
+          cases: response.data.data[0],
         });
       });
       console.log("Your input value is: " + this.state.value);
