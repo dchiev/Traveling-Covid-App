@@ -996,26 +996,28 @@ class search extends React.Component {
   addValue(evt) {
     evt.preventDefault();
     let country = this.state.value;
-    if (country_code[country]) {
-      country = country_code[country]
+    for(let i=0; i<country_code.length; i++){
+      if (country_code[i].fullName == country) {
+        country = country_code[i].abbreviation;
+      }
     }
 
     if (this.state.value !== undefined) {
-      API.findCountry1(this.state.value).then((response) => {
+      API.findCountry1(country).then((response) => {
         this.setState({
-          recomendations: response.data.data[this.state.value],
+          recomendations: response.data.data[country],
         });
         /* console.log(response); */
         console.log(this.state.recomendations);
       });
-      API.findCountry2(this.state.value).then((response) => {
+      API.findCountry2(country).then((response) => {
         console.log("second api", response);
         /* (response) => console.log(response) */
         this.setState({
           cases: response.data.data[0],
         });
       });
-      console.log("Your input value is: " + this.state.value);
+      console.log("Your input value is: " + country);
     }
   }
   updateInput(evt) {
