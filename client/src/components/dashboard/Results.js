@@ -17,14 +17,7 @@ function Results(props) {
           closeIcon={<Icon>close</Icon>}
           revealIcon={<Icon>more_vert</Icon>}
           textClassName="white-text"
-          title={props.results.recomendations}
-        >
-          {props.results}
-
-          {/*  {props.results.map(countryInfo) => (
-      <h2>Country:{countryInfo.} </h2>
-    )} */}
-        </Card>
+        ></Card>
       </Col>
     </Row>
   );
