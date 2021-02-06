@@ -58,9 +58,12 @@ function ResultsContainer(props) {
           >
             {" "}
             <h2>{cases?.confirmed || "Search for your Country"}</h2>
-            {/*  {props.results.map(countryInfo) => (
-      <h2>Country:{countryInfo.} </h2>
-    )} */}
+            <h5>{!recomendations ? "" : recomendations.advisory.score}</h5>
+            <h5>Country:</h5>
+            <h5>{!recomendations ? "" : recomendations.name}</h5>
+            <h5>Cases:</h5> <h5>{cases?.confirmed || ""}</h5>
+            <h5>Dead:</h5>
+            <h5>{cases?.dead || ""}</h5>
           </Card>
         </Col>
       </Row>
