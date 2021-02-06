@@ -51,15 +51,11 @@ function ResultsContainer(props) {
             closeIcon={<Icon>close</Icon>}
             revealIcon={<Icon>more_vert</Icon>}
             textClassName="white-text"
-            title={
-              !recomendations ? "No title" : recomendations.advisory.message
-            }
+            title={!recomendations ? "" : recomendations.advisory.message}
 
             /*    title={props.recomendations} */
           >
             {" "}
-            <h2>{cases?.confirmed || "Search for your Country"}</h2>
-            <h5>{!recomendations ? "" : recomendations.advisory.score}</h5>
             <img
               src={
                 !recomendations.advisory
