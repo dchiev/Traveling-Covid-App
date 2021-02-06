@@ -2,7 +2,8 @@ import React, { Component, useState, useEffect } from "react";
 import API from "../../utils/API";
 import Results from "./Results";
 import { Card, Row, Col, Icon } from "react-materialize";
-
+import advisory1 from "../../images/advisory1.png";
+import advisory2 from "../../images/advisory2.png";
 function ResultsContainer(props) {
   /*   const test = {
     data: {
@@ -59,6 +60,15 @@ function ResultsContainer(props) {
             {" "}
             <h2>{cases?.confirmed || "Search for your Country"}</h2>
             <h5>{!recomendations ? "" : recomendations.advisory.score}</h5>
+            <img
+              src={
+                !recomendations.advisory
+                  ? ""
+                  : recomendations.advisory.score < 3
+                  ? advisory1
+                  : advisory2
+              }
+            />
             <h5>Country:</h5>
             <h5>{!recomendations ? "" : recomendations.name}</h5>
             <h5>Cases:</h5> <h5>{cases?.confirmed || ""}</h5>
