@@ -25,15 +25,7 @@ class Dashboard extends Component {
               </p>
             </h4>
             <Search />
-            <DiscussionEmbed
-              shortname="covidtraveling"
-              config={{
-                url: "http://localhost:3000",
-                identifier: "article-id",
-                title: "Title of Your Article",
-                language: "en_US", //e.g. for Traditional Chinese (Taiwan)
-              }}
-            />
+
             <button
               style={{
                 width: "150px",
