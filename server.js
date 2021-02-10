@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
 const users = require("./routes/api/users");
-const routes = require("./routes");
+const posts = require("./routes/posts");
 
 const app = express();
 
@@ -14,11 +14,12 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
-});
+}); // DB Config
 
-// rpites
-app.use(routes);
-// DB Config
+// routes
+app.use(users);
+app.use(posts);
+
 const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB

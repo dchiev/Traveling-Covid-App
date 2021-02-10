@@ -1,4 +1,4 @@
-const path = require("path");
+/* const path = require("path");
 const router = require("express").Router();
 const postRoutes = require("./posts");
 
@@ -11,3 +11,4 @@ router.use(function (req, res) {
 });
 
 module.exports = router;
+ */
