@@ -8,7 +8,10 @@ const Post = () => {
       <div class="card blue darken-1">
         <div class="card-content white-text">
           <span class="card-title"></span>
-          <p></p>
+          <p>Post text goes here</p>
+          <p>Posted by user:</p>
+          <p>Posted on:</p>
+
           
         </div>
         
