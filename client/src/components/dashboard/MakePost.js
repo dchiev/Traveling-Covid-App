@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MakePost = () => {
+const MakePost = ({handleSubmit, handleChange}) => {
     return (
         <div>
             <div class="row">
@@ -8,7 +8,15 @@ const MakePost = () => {
       <div class="card blue darken-1">
         <div class="card-content white-text">
           <span class="card-title"></span>
-          <p></p>
+      {/*     <form className="form-inline" onSubmit={e => handleSubmit(e) }>
+        <input type="submit" 
+        onChange = {e => handleChange(e)}
+          className="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form> */}
           <input></input>
         </div>
         <div class="card-action">
