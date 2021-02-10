@@ -37,7 +37,7 @@ function ResultsContainer(props) {
   return (
     <div>
       <Row>
-        <Col m={6} s={12}>
+        <Col>
           <Card
             actions={[
               <a key="1" href="#">

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Search from "./Search";
 import "./dashboardstyles.css";
-
+import Post from "./Post";
+import MakePost from "./MakePost"
 class Dashboard extends Component {
   onLogoutClick = (e) => {
     e.preventDefault();
@@ -25,7 +26,8 @@ class Dashboard extends Component {
               </p>
             </h4>
             <Search />
-
+            <Post />
+            <MakePost />
             <button
               style={{
                 width: "150px",
