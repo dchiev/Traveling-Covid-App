@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { Component } from  'react';
 
-const MakePost = ({handleSubmit, handleChange}) => {
+class MakePost extends Component {
+
+    state = { 
+        text: ""
+    }
+
+   handleChange = (e) => {
+        this.state.text = e.target.value;
+        
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(this.state.text);
+    }
+ render () { 
     return (
         <div>
             <div class="row">
@@ -8,26 +22,28 @@ const MakePost = ({handleSubmit, handleChange}) => {
       <div class="card blue darken-1">
         <div class="card-content white-text">
           <span class="card-title"></span>
-      {/*     <form className="form-inline" onSubmit={e => handleSubmit(e) }>
+           <form className="form-inline" onSubmit = {this.handleSubmit}>
         <input type="submit" 
-        onChange = {e => handleChange(e)}
+        onChange = {this.handleChange}
           className="form-control"
           type="search"
           placeholder="Search"
           aria-label="Search"
         />
-      </form> */}
-          <input></input>
-        </div>
+      
         <div class="card-action">
           <button>Submit</button>
+          
+        </div>
+        </form> 
           
         </div>
       </div>
     </div>
   </div>
         </div>
-    )
+    ) 
+}
 }
 
 export default MakePost
