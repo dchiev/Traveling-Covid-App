@@ -1020,6 +1020,10 @@ class search extends React.Component {
         this.setState({
           cases: response.data.data[0],
         });
+        postsAPI.getPost(country).then(res =>
+          
+            console.log(res.data));
+
       });
       console.log("Your input value is: " + country);
     }

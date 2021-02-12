@@ -5,6 +5,7 @@ export default {
     return axios.get("/api/posts");
   },
   getPost: function (id) {
+    console.log(id)
     return axios.get("/api/posts/" + id);
   },
   deletePost: function (id) {

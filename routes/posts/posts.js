@@ -6,6 +6,7 @@ router.route("/").get(postsController.findAll).post(postsController.create);
 router
   .route("/:id")
   .get(postsController.findById)
+  .post(postsController.create)
   .put(postsController.update)
   .delete(postsController.remove);
 
