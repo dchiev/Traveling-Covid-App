@@ -2,13 +2,12 @@ const db = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-    db.Posts.find(req.query)
+    db.Posts.find()
       .sort({ date: -1 })
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .then((dbModel) => res.json(dbModel));
   },
   findById: function (req, res) {
-    db.Posts.findById(req.params.id)
+    db.Posts.find({ country: req.params.id })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -22,11 +21,11 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-findByCountry: function (req, res) {
-  db.Posts.findOne({country: req.params.id})
-  .then((dbModel) => res.json(dbModel))
+  findByCountry: function (req, res) {
+    db.Posts.findOne({ country: req.body })
+      .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
-},
+  },
   remove: function (req, res) {
     db.Posts.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
