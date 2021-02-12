@@ -27,7 +27,7 @@ class Dashboard extends Component {
             </h4>
             <Search />
             <Post />
-            <MakePost />
+            {/* <MakePost /> */}
             <button
               style={{
                 width: "150px",
