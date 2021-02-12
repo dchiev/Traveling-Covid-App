@@ -1,4 +1,5 @@
 import React, { Component } from  'react';
+import PostApi from "../../utils/postsAPI";
 
 class MakePost extends Component {
 
@@ -13,6 +14,10 @@ class MakePost extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state.text);
+        PostApi.savePost({
+            text: this.state.text
+            
+        }).then(res => console.log(res));
     }
  render () { 
     return (
@@ -31,7 +36,7 @@ class MakePost extends Component {
           aria-label="Search"
         />
       
-        <div class="card-action">
+        <div class="card-action" >
           <button>Submit</button>
           
         </div>

@@ -2,15 +2,15 @@ import axios from "axios";
 
 export default {
   getPosts: function () {
-    return axios.get("/postsapi/posts");
+    return axios.get("/api/posts");
   },
   getPost: function (id) {
-    return axios.get("/postsapi/posts/" + id);
+    return axios.get("/api/posts/" + id);
   },
   deletePost: function (id) {
-    return axios.delete("/postsapi/posts/" + id);
+    return axios.delete("/api/posts/" + id);
   },
   savePost: function (postData) {
-    return axios.post("/postsapi/posts", postData);
+    return axios.post("/api/posts", postData);
   },
 };

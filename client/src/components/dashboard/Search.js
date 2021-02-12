@@ -1,994 +1,998 @@
 import React from "react";
 import API from "../../utils/API";
+import PostApi from "../../utils/postsAPI";
 import ResultsContainer from "./ResultsContainer";
+import Post from "./Post";
+import MakePost from "./MakePost";
+import postsAPI from "../../utils/postsAPI";
 
 const country_code = [
   {
-    abbreviation: 'AF',
-    fullName: 'Afghanistan'
+    abbreviation: "AF",
+    fullName: "Afghanistan",
   },
   {
-    abbreviation: 'AX',
-    fullName: 'Aland Islands'
+    abbreviation: "AX",
+    fullName: "Aland Islands",
   },
   {
-    abbreviation: 'AL',
-    fullName: 'Albania'
+    abbreviation: "AL",
+    fullName: "Albania",
   },
   {
-    abbreviation: 'DZ',
-    fullName: 'Algeria'
+    abbreviation: "DZ",
+    fullName: "Algeria",
   },
   {
-    abbreviation: 'AS',
-    fullName: 'American Samoa'
+    abbreviation: "AS",
+    fullName: "American Samoa",
   },
   {
-    abbreviation: 'AD',
-    fullName: 'Andorra'
+    abbreviation: "AD",
+    fullName: "Andorra",
   },
   {
-    abbreviation: 'AO',
-    fullName: 'Angola'
+    abbreviation: "AO",
+    fullName: "Angola",
   },
   {
-    abbreviation: 'AI',
-    fullName: 'Anguilla'
+    abbreviation: "AI",
+    fullName: "Anguilla",
   },
   {
-    abbreviation: 'AQ',
-    fullName: 'Antarctica'
+    abbreviation: "AQ",
+    fullName: "Antarctica",
   },
   {
-    abbreviation: 'AG',
-    fullName: 'Antigua And Barbuda'
+    abbreviation: "AG",
+    fullName: "Antigua And Barbuda",
   },
   {
-    abbreviation: 'AR',
-    fullName: 'Argentina'
+    abbreviation: "AR",
+    fullName: "Argentina",
   },
   {
-    abbreviation: 'AM',
-    fullName: 'Armenia'
+    abbreviation: "AM",
+    fullName: "Armenia",
   },
   {
-    abbreviation: 'AW',
-    fullName: 'Aruba'
+    abbreviation: "AW",
+    fullName: "Aruba",
   },
   {
-    abbreviation: 'AU',
-    fullName: 'Australia'
+    abbreviation: "AU",
+    fullName: "Australia",
   },
   {
-    abbreviation: 'AT',
-    fullName: 'Austria'
+    abbreviation: "AT",
+    fullName: "Austria",
   },
   {
-    abbreviation: 'AZ',
-    fullName: 'Azerbaijan'
+    abbreviation: "AZ",
+    fullName: "Azerbaijan",
   },
   {
-    abbreviation: 'BS',
-    fullName: 'Bahamas'
+    abbreviation: "BS",
+    fullName: "Bahamas",
   },
   {
-    abbreviation: 'BH',
-    fullName: 'Bahrain'
+    abbreviation: "BH",
+    fullName: "Bahrain",
   },
   {
-    abbreviation: 'BD',
-    fullName: 'Bangladesh'
+    abbreviation: "BD",
+    fullName: "Bangladesh",
   },
   {
-    abbreviation: 'BB',
-    fullName: 'Barbados'
+    abbreviation: "BB",
+    fullName: "Barbados",
   },
   {
-    abbreviation: 'BY',
-    fullName: 'Belarus'
+    abbreviation: "BY",
+    fullName: "Belarus",
   },
   {
-    abbreviation: 'BE',
-    fullName: 'Belgium'
+    abbreviation: "BE",
+    fullName: "Belgium",
   },
   {
-    abbreviation: 'BZ',
-    fullName: 'Belize'
+    abbreviation: "BZ",
+    fullName: "Belize",
   },
   {
-    abbreviation: 'BJ',
-    fullName: 'Benin'
+    abbreviation: "BJ",
+    fullName: "Benin",
   },
   {
-    abbreviation: 'BM',
-    fullName: 'Bermuda'
+    abbreviation: "BM",
+    fullName: "Bermuda",
   },
   {
-    abbreviation: 'BT',
-    fullName: 'Bhutan'
+    abbreviation: "BT",
+    fullName: "Bhutan",
   },
   {
-    abbreviation: 'BO',
-    fullName: 'Bolivia'
+    abbreviation: "BO",
+    fullName: "Bolivia",
   },
   {
-    abbreviation: 'BA',
-    fullName: 'Bosnia And Herzegovina'
+    abbreviation: "BA",
+    fullName: "Bosnia And Herzegovina",
   },
   {
-    abbreviation: 'BW',
-    fullName: 'Botswana'
+    abbreviation: "BW",
+    fullName: "Botswana",
   },
   {
-    abbreviation: 'BV',
-    fullName: 'Bouvet Island'
+    abbreviation: "BV",
+    fullName: "Bouvet Island",
   },
   {
-    abbreviation: 'BR',
-    fullName: 'Brazil'
+    abbreviation: "BR",
+    fullName: "Brazil",
   },
   {
-    abbreviation: 'IO',
-    fullName: 'British Indian Ocean Territory'
+    abbreviation: "IO",
+    fullName: "British Indian Ocean Territory",
   },
   {
-    abbreviation: 'BN',
-    fullName: 'Brunei Darussalam'
+    abbreviation: "BN",
+    fullName: "Brunei Darussalam",
   },
   {
-    abbreviation: 'BG',
-    fullName: 'Bulgaria'
+    abbreviation: "BG",
+    fullName: "Bulgaria",
   },
   {
-    abbreviation: 'BF',
-    fullName: 'Burkina Faso'
+    abbreviation: "BF",
+    fullName: "Burkina Faso",
   },
   {
-    abbreviation: 'BI',
-    fullName: 'Burundi'
+    abbreviation: "BI",
+    fullName: "Burundi",
   },
   {
-    abbreviation: 'KH',
-    fullName: 'Cambodia'
+    abbreviation: "KH",
+    fullName: "Cambodia",
   },
   {
-    abbreviation: 'CM',
-    fullName: 'Cameroon'
+    abbreviation: "CM",
+    fullName: "Cameroon",
   },
   {
-    abbreviation: 'CA',
-    fullName: 'Canada'
+    abbreviation: "CA",
+    fullName: "Canada",
   },
   {
-    abbreviation: 'CV',
-    fullName: 'Cape Verde'
+    abbreviation: "CV",
+    fullName: "Cape Verde",
   },
   {
-    abbreviation: 'KY',
-    fullName: 'Cayman Islands'
+    abbreviation: "KY",
+    fullName: "Cayman Islands",
   },
   {
-    abbreviation: 'CF',
-    fullName: 'Central African Republic'
+    abbreviation: "CF",
+    fullName: "Central African Republic",
   },
   {
-    abbreviation: 'TD',
-    fullName: 'Chad'
+    abbreviation: "TD",
+    fullName: "Chad",
   },
   {
-    abbreviation: 'CL',
-    fullName: 'Chile'
+    abbreviation: "CL",
+    fullName: "Chile",
   },
   {
-    abbreviation: 'CN',
-    fullName: 'China'
+    abbreviation: "CN",
+    fullName: "China",
   },
   {
-    abbreviation: 'CX',
-    fullName: 'Christmas Island'
+    abbreviation: "CX",
+    fullName: "Christmas Island",
   },
   {
-    abbreviation: 'CC',
-    fullName: 'Cocos (Keeling) Islands'
+    abbreviation: "CC",
+    fullName: "Cocos (Keeling) Islands",
   },
   {
-    abbreviation: 'CO',
-    fullName: 'Colombia'
+    abbreviation: "CO",
+    fullName: "Colombia",
   },
   {
-    abbreviation: 'KM',
-    fullName: 'Comoros'
+    abbreviation: "KM",
+    fullName: "Comoros",
   },
   {
-    abbreviation: 'CG',
-    fullName: 'Congo'
+    abbreviation: "CG",
+    fullName: "Congo",
   },
   {
-    abbreviation: 'CD',
-    fullName: 'Congo, Democratic Republic'
+    abbreviation: "CD",
+    fullName: "Congo, Democratic Republic",
   },
   {
-    abbreviation: 'CK',
-    fullName: 'Cook Islands'
+    abbreviation: "CK",
+    fullName: "Cook Islands",
   },
   {
-    abbreviation: 'CR',
-    fullName: 'Costa Rica'
+    abbreviation: "CR",
+    fullName: "Costa Rica",
   },
   {
-    abbreviation: 'CI',
-    fullName: 'Cote D\'Ivoire'
+    abbreviation: "CI",
+    fullName: "Cote D'Ivoire",
   },
   {
-    abbreviation: 'HR',
-    fullName: 'Croatia'
+    abbreviation: "HR",
+    fullName: "Croatia",
   },
   {
-    abbreviation: 'CU',
-    fullName: 'Cuba'
+    abbreviation: "CU",
+    fullName: "Cuba",
   },
   {
-    abbreviation: 'CY',
-    fullName: 'Cyprus'
+    abbreviation: "CY",
+    fullName: "Cyprus",
   },
   {
-    abbreviation: 'CZ',
-    fullName: 'Czech Republic'
+    abbreviation: "CZ",
+    fullName: "Czech Republic",
   },
   {
-    abbreviation: 'DK',
-    fullName: 'Denmark'
+    abbreviation: "DK",
+    fullName: "Denmark",
   },
   {
-    abbreviation: 'DJ',
-    fullName: 'Djibouti'
+    abbreviation: "DJ",
+    fullName: "Djibouti",
   },
   {
-    abbreviation: 'DM',
-    fullName: 'Dominica'
+    abbreviation: "DM",
+    fullName: "Dominica",
   },
   {
-    abbreviation: 'DO',
-    fullName: 'Dominican Republic'
+    abbreviation: "DO",
+    fullName: "Dominican Republic",
   },
   {
-    abbreviation: 'EC',
-    fullName: 'Ecuador'
+    abbreviation: "EC",
+    fullName: "Ecuador",
   },
   {
-    abbreviation: 'EG',
-    fullName: 'Egypt'
+    abbreviation: "EG",
+    fullName: "Egypt",
   },
   {
-    abbreviation: 'SV',
-    fullName: 'El Salvador'
+    abbreviation: "SV",
+    fullName: "El Salvador",
   },
   {
-    abbreviation: 'GQ',
-    fullName: 'Equatorial Guinea'
+    abbreviation: "GQ",
+    fullName: "Equatorial Guinea",
   },
   {
-    abbreviation: 'ER',
-    fullName: 'Eritrea'
+    abbreviation: "ER",
+    fullName: "Eritrea",
   },
   {
-    abbreviation: 'EE',
-    fullName: 'Estonia'
+    abbreviation: "EE",
+    fullName: "Estonia",
   },
   {
-    abbreviation: 'ET',
-    fullName: 'Ethiopia'
+    abbreviation: "ET",
+    fullName: "Ethiopia",
   },
   {
-    abbreviation: 'FK',
-    fullName: 'Falkland Islands (Malvinas)'
+    abbreviation: "FK",
+    fullName: "Falkland Islands (Malvinas)",
   },
   {
-    abbreviation: 'FO',
-    fullName: 'Faroe Islands'
+    abbreviation: "FO",
+    fullName: "Faroe Islands",
   },
   {
-    abbreviation: 'FJ',
-    fullName: 'Fiji'
+    abbreviation: "FJ",
+    fullName: "Fiji",
   },
   {
-    abbreviation: 'FI',
-    fullName: 'Finland'
+    abbreviation: "FI",
+    fullName: "Finland",
   },
   {
-    abbreviation: 'FR',
-    fullName: 'France'
+    abbreviation: "FR",
+    fullName: "France",
   },
   {
-    abbreviation: 'GF',
-    fullName: 'French Guiana'
+    abbreviation: "GF",
+    fullName: "French Guiana",
   },
   {
-    abbreviation: 'PF',
-    fullName: 'French Polynesia'
+    abbreviation: "PF",
+    fullName: "French Polynesia",
   },
   {
-    abbreviation: 'TF',
-    fullName: 'French Southern Territories'
+    abbreviation: "TF",
+    fullName: "French Southern Territories",
   },
   {
-    abbreviation: 'GA',
-    fullName: 'Gabon'
+    abbreviation: "GA",
+    fullName: "Gabon",
   },
   {
-    abbreviation: 'GM',
-    fullName: 'Gambia'
+    abbreviation: "GM",
+    fullName: "Gambia",
   },
   {
-    abbreviation: 'GE',
-    fullName: 'Georgia'
+    abbreviation: "GE",
+    fullName: "Georgia",
   },
   {
-    abbreviation: 'DE',
-    fullName: 'Germany'
+    abbreviation: "DE",
+    fullName: "Germany",
   },
   {
-    abbreviation: 'GH',
-    fullName: 'Ghana'
+    abbreviation: "GH",
+    fullName: "Ghana",
   },
   {
-    abbreviation: 'GI',
-    fullName: 'Gibraltar'
+    abbreviation: "GI",
+    fullName: "Gibraltar",
   },
   {
-    abbreviation: 'GR',
-    fullName: 'Greece'
+    abbreviation: "GR",
+    fullName: "Greece",
   },
   {
-    abbreviation: 'GL',
-    fullName: 'Greenland'
+    abbreviation: "GL",
+    fullName: "Greenland",
   },
   {
-    abbreviation: 'GD',
-    fullName: 'Grenada'
+    abbreviation: "GD",
+    fullName: "Grenada",
   },
   {
-    abbreviation: 'GP',
-    fullName: 'Guadeloupe'
+    abbreviation: "GP",
+    fullName: "Guadeloupe",
   },
   {
-    abbreviation: 'GU',
-    fullName: 'Guam'
+    abbreviation: "GU",
+    fullName: "Guam",
   },
   {
-    abbreviation: 'GT',
-    fullName: 'Guatemala'
+    abbreviation: "GT",
+    fullName: "Guatemala",
   },
   {
-    abbreviation: 'GG',
-    fullName: 'Guernsey'
+    abbreviation: "GG",
+    fullName: "Guernsey",
   },
   {
-    abbreviation: 'GN',
-    fullName: 'Guinea'
+    abbreviation: "GN",
+    fullName: "Guinea",
   },
   {
-    abbreviation: 'GW',
-    fullName: 'Guinea-Bissau'
+    abbreviation: "GW",
+    fullName: "Guinea-Bissau",
   },
   {
-    abbreviation: 'GY',
-    fullName: 'Guyana'
+    abbreviation: "GY",
+    fullName: "Guyana",
   },
   {
-    abbreviation: 'HT',
-    fullName: 'Haiti'
+    abbreviation: "HT",
+    fullName: "Haiti",
   },
   {
-    abbreviation: 'HM',
-    fullName: 'Heard Island & Mcdonald Islands'
+    abbreviation: "HM",
+    fullName: "Heard Island & Mcdonald Islands",
   },
   {
-    abbreviation: 'VA',
-    fullName: 'Holy See (Vatican City State)'
+    abbreviation: "VA",
+    fullName: "Holy See (Vatican City State)",
   },
   {
-    abbreviation: 'HN',
-    fullName: 'Honduras'
+    abbreviation: "HN",
+    fullName: "Honduras",
   },
   {
-    abbreviation: 'HK',
-    fullName: 'Hong Kong'
+    abbreviation: "HK",
+    fullName: "Hong Kong",
   },
   {
-    abbreviation: 'HU',
-    fullName: 'Hungary'
+    abbreviation: "HU",
+    fullName: "Hungary",
   },
   {
-    abbreviation: 'IS',
-    fullName: 'Iceland'
+    abbreviation: "IS",
+    fullName: "Iceland",
   },
   {
-    abbreviation: 'IN',
-    fullName: 'India'
+    abbreviation: "IN",
+    fullName: "India",
   },
   {
-    abbreviation: 'ID',
-    fullName: 'Indonesia'
+    abbreviation: "ID",
+    fullName: "Indonesia",
   },
   {
-    abbreviation: 'IR',
-    fullName: 'Iran, Islamic Republic Of'
+    abbreviation: "IR",
+    fullName: "Iran, Islamic Republic Of",
   },
   {
-    abbreviation: 'IQ',
-    fullName: 'Iraq'
+    abbreviation: "IQ",
+    fullName: "Iraq",
   },
   {
-    abbreviation: 'IE',
-    fullName: 'Ireland'
+    abbreviation: "IE",
+    fullName: "Ireland",
   },
   {
-    abbreviation: 'IM',
-    fullName: 'Isle Of Man'
+    abbreviation: "IM",
+    fullName: "Isle Of Man",
   },
   {
-    abbreviation: 'IL',
-    fullName: 'Israel'
+    abbreviation: "IL",
+    fullName: "Israel",
   },
   {
-    abbreviation: 'IT',
-    fullName: 'Italy'
+    abbreviation: "IT",
+    fullName: "Italy",
   },
   {
-    abbreviation: 'JM',
-    fullName: 'Jamaica'
+    abbreviation: "JM",
+    fullName: "Jamaica",
   },
   {
-    abbreviation: 'JP',
-    fullName: 'Japan'
+    abbreviation: "JP",
+    fullName: "Japan",
   },
   {
-    abbreviation: 'JE',
-    fullName: 'Jersey'
+    abbreviation: "JE",
+    fullName: "Jersey",
   },
   {
-    abbreviation: 'JO',
-    fullName: 'Jordan'
+    abbreviation: "JO",
+    fullName: "Jordan",
   },
   {
-    abbreviation: 'KZ',
-    fullName: 'Kazakhstan'
+    abbreviation: "KZ",
+    fullName: "Kazakhstan",
   },
   {
-    abbreviation: 'KE',
-    fullName: 'Kenya'
+    abbreviation: "KE",
+    fullName: "Kenya",
   },
   {
-    abbreviation: 'KI',
-    fullName: 'Kiribati'
+    abbreviation: "KI",
+    fullName: "Kiribati",
   },
   {
-    abbreviation: 'KR',
-    fullName: 'Korea'
+    abbreviation: "KR",
+    fullName: "Korea",
   },
   {
-    abbreviation: 'KW',
-    fullName: 'Kuwait'
+    abbreviation: "KW",
+    fullName: "Kuwait",
   },
   {
-    abbreviation: 'KG',
-    fullName: 'Kyrgyzstan'
+    abbreviation: "KG",
+    fullName: "Kyrgyzstan",
   },
   {
-    abbreviation: 'LA',
-    fullName: 'Lao People\'s Democratic Republic'
+    abbreviation: "LA",
+    fullName: "Lao People's Democratic Republic",
   },
   {
-    abbreviation: 'LV',
-    fullName: 'Latvia'
+    abbreviation: "LV",
+    fullName: "Latvia",
   },
   {
-    abbreviation: 'LB',
-    fullName: 'Lebanon'
+    abbreviation: "LB",
+    fullName: "Lebanon",
   },
   {
-    abbreviation: 'LS',
-    fullName: 'Lesotho'
+    abbreviation: "LS",
+    fullName: "Lesotho",
   },
   {
-    abbreviation: 'LR',
-    fullName: 'Liberia'
+    abbreviation: "LR",
+    fullName: "Liberia",
   },
   {
-    abbreviation: 'LY',
-    fullName: 'Libyan Arab Jamahiriya'
+    abbreviation: "LY",
+    fullName: "Libyan Arab Jamahiriya",
   },
   {
-    abbreviation: 'LI',
-    fullName: 'Liechtenstein'
+    abbreviation: "LI",
+    fullName: "Liechtenstein",
   },
   {
-    abbreviation: 'LT',
-    fullName: 'Lithuania'
+    abbreviation: "LT",
+    fullName: "Lithuania",
   },
   {
-    abbreviation: 'LU',
-    fullName: 'Luxembourg'
+    abbreviation: "LU",
+    fullName: "Luxembourg",
   },
   {
-    abbreviation: 'MO',
-    fullName: 'Macao'
+    abbreviation: "MO",
+    fullName: "Macao",
   },
   {
-    abbreviation: 'MK',
-    fullName: 'Macedonia'
+    abbreviation: "MK",
+    fullName: "Macedonia",
   },
   {
-    abbreviation: 'MG',
-    fullName: 'Madagascar'
+    abbreviation: "MG",
+    fullName: "Madagascar",
   },
   {
-    abbreviation: 'MW',
-    fullName: 'Malawi'
+    abbreviation: "MW",
+    fullName: "Malawi",
   },
   {
-    abbreviation: 'MY',
-    fullName: 'Malaysia'
+    abbreviation: "MY",
+    fullName: "Malaysia",
   },
   {
-    abbreviation: 'MV',
-    fullName: 'Maldives'
+    abbreviation: "MV",
+    fullName: "Maldives",
   },
   {
-    abbreviation: 'ML',
-    fullName: 'Mali'
+    abbreviation: "ML",
+    fullName: "Mali",
   },
   {
-    abbreviation: 'MT',
-    fullName: 'Malta'
+    abbreviation: "MT",
+    fullName: "Malta",
   },
   {
-    abbreviation: 'MH',
-    fullName: 'Marshall Islands'
+    abbreviation: "MH",
+    fullName: "Marshall Islands",
   },
   {
-    abbreviation: 'MQ',
-    fullName: 'Martinique'
+    abbreviation: "MQ",
+    fullName: "Martinique",
   },
   {
-    abbreviation: 'MR',
-    fullName: 'Mauritania'
+    abbreviation: "MR",
+    fullName: "Mauritania",
   },
   {
-    abbreviation: 'MU',
-    fullName: 'Mauritius'
+    abbreviation: "MU",
+    fullName: "Mauritius",
   },
   {
-    abbreviation: 'YT',
-    fullName: 'Mayotte'
+    abbreviation: "YT",
+    fullName: "Mayotte",
   },
   {
-    abbreviation: 'MX',
-    fullName: 'Mexico'
+    abbreviation: "MX",
+    fullName: "Mexico",
   },
   {
-    abbreviation: 'FM',
-    fullName: 'Micronesia, Federated States Of'
+    abbreviation: "FM",
+    fullName: "Micronesia, Federated States Of",
   },
   {
-    abbreviation: 'MD',
-    fullName: 'Moldova'
+    abbreviation: "MD",
+    fullName: "Moldova",
   },
   {
-    abbreviation: 'MC',
-    fullName: 'Monaco'
+    abbreviation: "MC",
+    fullName: "Monaco",
   },
   {
-    abbreviation: 'MN',
-    fullName: 'Mongolia'
+    abbreviation: "MN",
+    fullName: "Mongolia",
   },
   {
-    abbreviation: 'ME',
-    fullName: 'Montenegro'
+    abbreviation: "ME",
+    fullName: "Montenegro",
   },
   {
-    abbreviation: 'MS',
-    fullName: 'Montserrat'
+    abbreviation: "MS",
+    fullName: "Montserrat",
   },
   {
-    abbreviation: 'MA',
-    fullName: 'Morocco'
+    abbreviation: "MA",
+    fullName: "Morocco",
   },
   {
-    abbreviation: 'MZ',
-    fullName: 'Mozambique'
+    abbreviation: "MZ",
+    fullName: "Mozambique",
   },
   {
-    abbreviation: 'MM',
-    fullName: 'Myanmar'
+    abbreviation: "MM",
+    fullName: "Myanmar",
   },
   {
-    abbreviation: 'NA',
-    fullName: 'Namibia'
+    abbreviation: "NA",
+    fullName: "Namibia",
   },
   {
-    abbreviation: 'NR',
-    fullName: 'Nauru'
+    abbreviation: "NR",
+    fullName: "Nauru",
   },
   {
-    abbreviation: 'NP',
-    fullName: 'Nepal'
+    abbreviation: "NP",
+    fullName: "Nepal",
   },
   {
-    abbreviation: 'NL',
-    fullName: 'Netherlands'
+    abbreviation: "NL",
+    fullName: "Netherlands",
   },
   {
-    abbreviation: 'AN',
-    fullName: 'Netherlands Antilles'
+    abbreviation: "AN",
+    fullName: "Netherlands Antilles",
   },
   {
-    abbreviation: 'NC',
-    fullName: 'New Caledonia'
+    abbreviation: "NC",
+    fullName: "New Caledonia",
   },
   {
-    abbreviation: 'NZ',
-    fullName: 'New Zealand'
+    abbreviation: "NZ",
+    fullName: "New Zealand",
   },
   {
-    abbreviation: 'NI',
-    fullName: 'Nicaragua'
+    abbreviation: "NI",
+    fullName: "Nicaragua",
   },
   {
-    abbreviation: 'NE',
-    fullName: 'Niger'
+    abbreviation: "NE",
+    fullName: "Niger",
   },
   {
-    abbreviation: 'NG',
-    fullName: 'Nigeria'
+    abbreviation: "NG",
+    fullName: "Nigeria",
   },
   {
-    abbreviation: 'NU',
-    fullName: 'Niue'
+    abbreviation: "NU",
+    fullName: "Niue",
   },
   {
-    abbreviation: 'NF',
-    fullName: 'Norfolk Island'
+    abbreviation: "NF",
+    fullName: "Norfolk Island",
   },
   {
-    abbreviation: 'MP',
-    fullName: 'Northern Mariana Islands'
+    abbreviation: "MP",
+    fullName: "Northern Mariana Islands",
   },
   {
-    abbreviation: 'NO',
-    fullName: 'Norway'
+    abbreviation: "NO",
+    fullName: "Norway",
   },
   {
-    abbreviation: 'OM',
-    fullName: 'Oman'
+    abbreviation: "OM",
+    fullName: "Oman",
   },
   {
-    abbreviation: 'PK',
-    fullName: 'Pakistan'
+    abbreviation: "PK",
+    fullName: "Pakistan",
   },
   {
-    abbreviation: 'PW',
-    fullName: 'Palau'
+    abbreviation: "PW",
+    fullName: "Palau",
   },
   {
-    abbreviation: 'PS',
-    fullName: 'Palestinian Territory, Occupied'
+    abbreviation: "PS",
+    fullName: "Palestinian Territory, Occupied",
   },
   {
-    abbreviation: 'PA',
-    fullName: 'Panama'
+    abbreviation: "PA",
+    fullName: "Panama",
   },
   {
-    abbreviation: 'PG',
-    fullName: 'Papua New Guinea'
+    abbreviation: "PG",
+    fullName: "Papua New Guinea",
   },
   {
-    abbreviation: 'PY',
-    fullName: 'Paraguay'
+    abbreviation: "PY",
+    fullName: "Paraguay",
   },
   {
-    abbreviation: 'PE',
-    fullName: 'Peru'
+    abbreviation: "PE",
+    fullName: "Peru",
   },
   {
-    abbreviation: 'PH',
-    fullName: 'Philippines'
+    abbreviation: "PH",
+    fullName: "Philippines",
   },
   {
-    abbreviation: 'PN',
-    fullName: 'Pitcairn'
+    abbreviation: "PN",
+    fullName: "Pitcairn",
   },
   {
-    abbreviation: 'PL',
-    fullName: 'Poland'
+    abbreviation: "PL",
+    fullName: "Poland",
   },
   {
-    abbreviation: 'PT',
-    fullName: 'Portugal'
+    abbreviation: "PT",
+    fullName: "Portugal",
   },
   {
-    abbreviation: 'PR',
-    fullName: 'Puerto Rico'
+    abbreviation: "PR",
+    fullName: "Puerto Rico",
   },
   {
-    abbreviation: 'QA',
-    fullName: 'Qatar'
+    abbreviation: "QA",
+    fullName: "Qatar",
   },
   {
-    abbreviation: 'RE',
-    fullName: 'Reunion'
+    abbreviation: "RE",
+    fullName: "Reunion",
   },
   {
-    abbreviation: 'RO',
-    fullName: 'Romania'
+    abbreviation: "RO",
+    fullName: "Romania",
   },
   {
-    abbreviation: 'RU',
-    fullName: 'Russian Federation'
+    abbreviation: "RU",
+    fullName: "Russian Federation",
   },
   {
-    abbreviation: 'RW',
-    fullName: 'Rwanda'
+    abbreviation: "RW",
+    fullName: "Rwanda",
   },
   {
-    abbreviation: 'BL',
-    fullName: 'Saint Barthelemy'
+    abbreviation: "BL",
+    fullName: "Saint Barthelemy",
   },
   {
-    abbreviation: 'SH',
-    fullName: 'Saint Helena'
+    abbreviation: "SH",
+    fullName: "Saint Helena",
   },
   {
-    abbreviation: 'KN',
-    fullName: 'Saint Kitts And Nevis'
+    abbreviation: "KN",
+    fullName: "Saint Kitts And Nevis",
   },
   {
-    abbreviation: 'LC',
-    fullName: 'Saint Lucia'
+    abbreviation: "LC",
+    fullName: "Saint Lucia",
   },
   {
-    abbreviation: 'MF',
-    fullName: 'Saint Martin'
+    abbreviation: "MF",
+    fullName: "Saint Martin",
   },
   {
-    abbreviation: 'PM',
-    fullName: 'Saint Pierre And Miquelon'
+    abbreviation: "PM",
+    fullName: "Saint Pierre And Miquelon",
   },
   {
-    abbreviation: 'VC',
-    fullName: 'Saint Vincent And Grenadines'
+    abbreviation: "VC",
+    fullName: "Saint Vincent And Grenadines",
   },
   {
-    abbreviation: 'WS',
-    fullName: 'Samoa'
+    abbreviation: "WS",
+    fullName: "Samoa",
   },
   {
-    abbreviation: 'SM',
-    fullName: 'San Marino'
+    abbreviation: "SM",
+    fullName: "San Marino",
   },
   {
-    abbreviation: 'ST',
-    fullName: 'Sao Tome And Principe'
+    abbreviation: "ST",
+    fullName: "Sao Tome And Principe",
   },
   {
-    abbreviation: 'SA',
-    fullName: 'Saudi Arabia'
+    abbreviation: "SA",
+    fullName: "Saudi Arabia",
   },
   {
-    abbreviation: 'SN',
-    fullName: 'Senegal'
+    abbreviation: "SN",
+    fullName: "Senegal",
   },
   {
-    abbreviation: 'RS',
-    fullName: 'Serbia'
+    abbreviation: "RS",
+    fullName: "Serbia",
   },
   {
-    abbreviation: 'SC',
-    fullName: 'Seychelles'
+    abbreviation: "SC",
+    fullName: "Seychelles",
   },
   {
-    abbreviation: 'SL',
-    fullName: 'Sierra Leone'
+    abbreviation: "SL",
+    fullName: "Sierra Leone",
   },
   {
-    abbreviation: 'SG',
-    fullName: 'Singapore'
+    abbreviation: "SG",
+    fullName: "Singapore",
   },
   {
-    abbreviation: 'SK',
-    fullName: 'Slovakia'
+    abbreviation: "SK",
+    fullName: "Slovakia",
   },
   {
-    abbreviation: 'SI',
-    fullName: 'Slovenia'
+    abbreviation: "SI",
+    fullName: "Slovenia",
   },
   {
-    abbreviation: 'SB',
-    fullName: 'Solomon Islands'
+    abbreviation: "SB",
+    fullName: "Solomon Islands",
   },
   {
-    abbreviation: 'SO',
-    fullName: 'Somalia'
+    abbreviation: "SO",
+    fullName: "Somalia",
   },
   {
-    abbreviation: 'ZA',
-    fullName: 'South Africa'
+    abbreviation: "ZA",
+    fullName: "South Africa",
   },
   {
-    abbreviation: 'GS',
-    fullName: 'South Georgia And Sandwich Isl.'
+    abbreviation: "GS",
+    fullName: "South Georgia And Sandwich Isl.",
   },
   {
-    abbreviation: 'ES',
-    fullName: 'Spain'
+    abbreviation: "ES",
+    fullName: "Spain",
   },
   {
-    abbreviation: 'LK',
-    fullName: 'Sri Lanka'
+    abbreviation: "LK",
+    fullName: "Sri Lanka",
   },
   {
-    abbreviation: 'SD',
-    fullName: 'Sudan'
+    abbreviation: "SD",
+    fullName: "Sudan",
   },
   {
-    abbreviation: 'SR',
-    fullName: 'Suriname'
+    abbreviation: "SR",
+    fullName: "Suriname",
   },
   {
-    abbreviation: 'SJ',
-    fullName: 'Svalbard And Jan Mayen'
+    abbreviation: "SJ",
+    fullName: "Svalbard And Jan Mayen",
   },
   {
-    abbreviation: 'SZ',
-    fullName: 'Swaziland'
+    abbreviation: "SZ",
+    fullName: "Swaziland",
   },
   {
-    abbreviation: 'SE',
-    fullName: 'Sweden'
+    abbreviation: "SE",
+    fullName: "Sweden",
   },
   {
-    abbreviation: 'CH',
-    fullName: 'Switzerland'
+    abbreviation: "CH",
+    fullName: "Switzerland",
   },
   {
-    abbreviation: 'SY',
-    fullName: 'Syrian Arab Republic'
+    abbreviation: "SY",
+    fullName: "Syrian Arab Republic",
   },
   {
-    abbreviation: 'TW',
-    fullName: 'Taiwan'
+    abbreviation: "TW",
+    fullName: "Taiwan",
   },
   {
-    abbreviation: 'TJ',
-    fullName: 'Tajikistan'
+    abbreviation: "TJ",
+    fullName: "Tajikistan",
   },
   {
-    abbreviation: 'TZ',
-    fullName: 'Tanzania'
+    abbreviation: "TZ",
+    fullName: "Tanzania",
   },
   {
-    abbreviation: 'TH',
-    fullName: 'Thailand'
+    abbreviation: "TH",
+    fullName: "Thailand",
   },
   {
-    abbreviation: 'TL',
-    fullName: 'Timor-Leste'
+    abbreviation: "TL",
+    fullName: "Timor-Leste",
   },
   {
-    abbreviation: 'TG',
-    fullName: 'Togo'
+    abbreviation: "TG",
+    fullName: "Togo",
   },
   {
-    abbreviation: 'TK',
-    fullName: 'Tokelau'
+    abbreviation: "TK",
+    fullName: "Tokelau",
   },
   {
-    abbreviation: 'TO',
-    fullName: 'Tonga'
+    abbreviation: "TO",
+    fullName: "Tonga",
   },
   {
-    abbreviation: 'TT',
-    fullName: 'Trinidad And Tobago'
+    abbreviation: "TT",
+    fullName: "Trinidad And Tobago",
   },
   {
-    abbreviation: 'TN',
-    fullName: 'Tunisia'
+    abbreviation: "TN",
+    fullName: "Tunisia",
   },
   {
-    abbreviation: 'TR',
-    fullName: 'Turkey'
+    abbreviation: "TR",
+    fullName: "Turkey",
   },
   {
-    abbreviation: 'TM',
-    fullName: 'Turkmenistan'
+    abbreviation: "TM",
+    fullName: "Turkmenistan",
   },
   {
-    abbreviation: 'TC',
-    fullName: 'Turks And Caicos Islands'
+    abbreviation: "TC",
+    fullName: "Turks And Caicos Islands",
   },
   {
-    abbreviation: 'TV',
-    fullName: 'Tuvalu'
+    abbreviation: "TV",
+    fullName: "Tuvalu",
   },
   {
-    abbreviation: 'UG',
-    fullName: 'Uganda'
+    abbreviation: "UG",
+    fullName: "Uganda",
   },
   {
-    abbreviation: 'UA',
-    fullName: 'Ukraine'
+    abbreviation: "UA",
+    fullName: "Ukraine",
   },
   {
-    abbreviation: 'AE',
-    fullName: 'United Arab Emirates'
+    abbreviation: "AE",
+    fullName: "United Arab Emirates",
   },
   {
-    abbreviation: 'GB',
-    fullName: 'United Kingdom'
+    abbreviation: "GB",
+    fullName: "United Kingdom",
   },
   {
-    abbreviation: 'US',
-    fullName: 'United States'
+    abbreviation: "US",
+    fullName: "United States",
   },
   {
-    abbreviation: 'UM',
-    fullName: 'United States Outlying Islands'
+    abbreviation: "UM",
+    fullName: "United States Outlying Islands",
   },
   {
-    abbreviation: 'UY',
-    fullName: 'Uruguay'
+    abbreviation: "UY",
+    fullName: "Uruguay",
   },
   {
-    abbreviation: 'UZ',
-    fullName: 'Uzbekistan'
+    abbreviation: "UZ",
+    fullName: "Uzbekistan",
   },
   {
-    abbreviation: 'VU',
-    fullName: 'Vanuatu'
+    abbreviation: "VU",
+    fullName: "Vanuatu",
   },
   {
-    abbreviation: 'VE',
-    fullName: 'Venezuela'
+    abbreviation: "VE",
+    fullName: "Venezuela",
   },
   {
-    abbreviation: 'VN',
-    fullName: 'Viet Nam'
+    abbreviation: "VN",
+    fullName: "Viet Nam",
   },
   {
-    abbreviation: 'VG',
-    fullName: 'Virgin Islands, British'
+    abbreviation: "VG",
+    fullName: "Virgin Islands, British",
   },
   {
-    abbreviation: 'VI',
-    fullName: 'Virgin Islands, U.S.'
+    abbreviation: "VI",
+    fullName: "Virgin Islands, U.S.",
   },
   {
-    abbreviation: 'WF',
-    fullName: 'Wallis And Futuna'
+    abbreviation: "WF",
+    fullName: "Wallis And Futuna",
   },
   {
-    abbreviation: 'EH',
-    fullName: 'Western Sahara'
+    abbreviation: "EH",
+    fullName: "Western Sahara",
   },
   {
-    abbreviation: 'YE',
-    fullName: 'Yemen'
+    abbreviation: "YE",
+    fullName: "Yemen",
   },
   {
-    abbreviation: 'ZM',
-    fullName: 'Zambia'
+    abbreviation: "ZM",
+    fullName: "Zambia",
   },
   {
-    abbreviation: 'ZW',
-    fullName: 'Zimbabwe'
-  }
-]
+    abbreviation: "ZW",
+    fullName: "Zimbabwe",
+  },
+];
 
 class search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", recomendations: "" };
+    this.state = { value: "", recomendations: "", text:"" };
     this.addValue = this.addValue.bind(this);
     this.updateInput = this.updateInput.bind(this);
   }
@@ -996,7 +1000,7 @@ class search extends React.Component {
   addValue(evt) {
     evt.preventDefault();
     let country = this.state.value;
-    for(let i=0; i<country_code.length; i++){
+    for (let i = 0; i < country_code.length; i++) {
       if (country_code[i].fullName == country) {
         country = country_code[i].abbreviation;
       }
@@ -1024,19 +1028,61 @@ class search extends React.Component {
     this.setState({ value: evt.target.value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.text);
+    PostApi.savePost({
+      text: this.state.text,
+      country: this.state.value,
+    }).then((res) => console.log(res));
+  };
+  handleChange = (e) => {
+    this.state.text = e.target.value;
+    
+}
   render() {
     return (
-      <form onSubmit={this.addValue}>
-        <input type="text" onChange={this.updateInput} />
-        <br />
-        <ResultsContainer
-          recomendations={this.state.recomendations}
-          searchCountry={this.state.value}
-          cases={this.state.cases}
-        />
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <form onSubmit={this.addValue}>
+          
+          
+          <br />
+          <ResultsContainer
+            recomendations={this.state.recomendations}
+            searchCountry={this.state.value}
+            cases={this.state.cases}
+          />
+          <br />
+          <input type="text" onChange={this.updateInput} />
+          <input type="submit" value="Submit" />
+        </form>
+
+        <div>
+          <div class="row">
+            <div class="col-md">
+              <div class="card blue darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title"></span>
+                  <form className="form-inline" onSubmit={this.handleSubmit}>
+                    <input
+                      type="submit"
+                      onChange={this.handleChange}
+                      className="form-control"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+
+                    <div class="card-action">
+                      <button>Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
