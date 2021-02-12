@@ -21,7 +21,7 @@ app.use(users);
 app.use(posts);
 
 const db = require("./config/keys").mongoURI;
-
+const smartPeople = require("./models");
 // Connect to MongoDB
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -46,6 +46,14 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
+function findAll(req, res) {
+  smartPeople.Posts.find()
+    .sort({ date: -1 })
+    .then((dbModel) => console.log(dbModel));
+}
+
+findAll();
 
 const port = process.env.PORT || 5000;
 

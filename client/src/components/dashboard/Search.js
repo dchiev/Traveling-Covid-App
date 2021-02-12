@@ -992,7 +992,7 @@ const country_code = [
 class search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", recomendations: "", text:"" };
+    this.state = { value: "", recomendations: "", text: "" };
     this.addValue = this.addValue.bind(this);
     this.updateInput = this.updateInput.bind(this);
   }
@@ -1020,10 +1020,7 @@ class search extends React.Component {
         this.setState({
           cases: response.data.data[0],
         });
-        postsAPI.getPost(country).then(res =>
-          
-            console.log(res.data));
-
+        postsAPI.getPost(country).then((res) => console.log(res.data));
       });
       console.log("Your input value is: " + country);
     }
@@ -1035,21 +1032,24 @@ class search extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state.text);
+    let country = this.state.value;
+    for (let i = 0; i < country_code.length; i++) {
+      if (country_code[i].fullName === country) {
+        country = country_code[i].abbreviation;
+      }
+    }
     PostApi.savePost({
       text: this.state.text,
-      country: this.state.value,
+      country: country,
     }).then((res) => console.log(res));
   };
   handleChange = (e) => {
     this.state.text = e.target.value;
-    
-}
+  };
   render() {
     return (
       <div>
         <form onSubmit={this.addValue}>
-          
-          
           <br />
           <ResultsContainer
             recomendations={this.state.recomendations}
