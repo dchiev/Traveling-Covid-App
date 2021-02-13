@@ -992,7 +992,7 @@ const country_code = [
 class search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", recomendations: "", text: "" };
+    this.state = { value: "", recomendations: "", text: "", posts: [] };
     this.addValue = this.addValue.bind(this);
     this.updateInput = this.updateInput.bind(this);
   }
@@ -1020,9 +1020,13 @@ class search extends React.Component {
         this.setState({
           cases: response.data.data[0],
         });
-        postsAPI
-          .getPost(country)
-          .then((response) => console.log("Posts:", response));
+      });
+      postsAPI.getPosts(country).then((response) => {
+        console.log("Posts:", response.data);
+        /* (response) => console.log(response) */
+        this.setState({
+          posts: response.data,
+        });
       });
       console.log("Your input value is: " + country);
     }
@@ -1057,6 +1061,7 @@ class search extends React.Component {
             recomendations={this.state.recomendations}
             searchCountry={this.state.value}
             cases={this.state.cases}
+            posts={this.state.posts}
           />
           <br />
           <input type="text" onChange={this.updateInput} />
