@@ -1067,14 +1067,15 @@ class search extends React.Component {
           <input type="text" onChange={this.updateInput} />
           <input type="submit" value="Submit" />
         </form>
-
+<br></br><br></br>
         <div>
           <div class="row">
             <div class="col-md">
               <div class="card blue darken-1">
                 <div class="card-content white-text">
-                  <span class="card-title"></span>
+                  <span class="card-title white-text"><b>We would love to hear from you</b></span>
                   <form className="form-inline" onSubmit={this.handleSubmit}>
+                    <br></br>
                     <input
                       type="submit"
                       onChange={this.handleChange}
@@ -1083,7 +1084,7 @@ class search extends React.Component {
                       placeholder="Search"
                       aria-label="Search"
                     />
-
+                    
                     <div class="card-action black-text">
                       <button>Submit</button>
                     </div>
