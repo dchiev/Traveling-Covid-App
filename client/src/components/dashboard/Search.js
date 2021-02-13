@@ -1021,7 +1021,7 @@ class search extends React.Component {
           cases: response.data.data[0],
         });
       });
-      postsAPI.getPosts(country).then((response) => {
+      postsAPI.getPost(country).then((response) => {
         console.log("Posts:", response.data);
         /* (response) => console.log(response) */
         this.setState({
