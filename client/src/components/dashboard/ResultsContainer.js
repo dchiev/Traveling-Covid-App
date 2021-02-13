@@ -24,7 +24,7 @@ function ResultsContainer(props) {
   /*  let searchCountry = "US";
   console.log(test.data[searchCountry].advisory.message); */
 
-  const { cases, searchCountry, recomendations } = props;
+  const { cases, searchCountry, recomendations, posts } = props;
   const [setCountry] = useState([]);
   useEffect(() => {
     console.log("mounted");
@@ -53,7 +53,7 @@ function ResultsContainer(props) {
             textClassName="white-text"
             title={!recomendations ? "" : recomendations.advisory.message}
 
-            /*    title={props.recomendations} */
+          /*    title={props.recomendations} */
           >
             {" "}
             <img
@@ -61,8 +61,8 @@ function ResultsContainer(props) {
                 !recomendations.advisory
                   ? ""
                   : recomendations.advisory.score < 3
-                  ? advisory1
-                  : advisory2
+                    ? advisory1
+                    : advisory2
               }
             />
             <h5>Country:</h5>
@@ -74,22 +74,27 @@ function ResultsContainer(props) {
         </Col>
       </Row>
       <div>
-            <div class="row">
-    <div class="col-md">
-      <div class="card blue darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"></span>
-          <p>Post text goes here</p>
-          <p>Posted by user:</p>
-          <p>Posted on:</p>
+        <div class="row">
+          <div class="col-md">
+            <div class="card blue darken-1">
+              <div class="card-content white-text">
+                <span class="card-title"></span>
+                {posts.map((userPost) => (
+                  <Card textClassName="black-text">
+                    <p>{userPost.text}</p>
+                  </Card>
+                ))}
+                <p>Post text goes here</p>
+                <p>Posted by user:</p>
+                <p>Posted on:</p>
 
-          
+
+              </div>
+
+            </div>
+          </div>
         </div>
-        
       </div>
-    </div>
-  </div>
-        </div>
     </div>
   );
 }
