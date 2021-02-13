@@ -1,7 +1,7 @@
 {
-  "name": "mern-jwt-auth",
+  "name": "safe-travels",
   "version": "2.0.0",
-  "description": "Minimal full-stack MERN app with authentication using passport and JWTs.",
+  "description": "MERN App that advises user on travel status and COVID case numbers of each country with a discussion feature.",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -15,19 +15,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vishalnagda1/mern-jwt-auth.git"
+    "url": "git+https://github.com/dchiev/traveling-covid-app"
   },
   "keywords": [
     "mern-auth",
     "mern-jwt-auth",
     "mern-auth-jwt"
   ],
-  "author": "Vishal Nagda",
+  "author": "Group 8",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vishalnagda1/mern-jwt-auth/issues"
+    "url": "https://github.com/dchiev/traveling-covid-app"
   },
-  "homepage": "https://github.com/vishalnagda1/mern-jwt-auth#readme",
+  "homepage": "https://github.com/dchiev/traveling-covid-app",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
