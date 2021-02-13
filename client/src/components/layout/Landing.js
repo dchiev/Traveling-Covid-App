@@ -9,9 +9,9 @@ class Landing extends Component {
             <h4>
               Hello, Welcome to <b>Safe Travels!</b>
             </h4>
-            <p className="flow-text grey-text text-darken-1">
-              A web search application to travel internationally without
-              covid-19.
+            <p className="flow-text black-text text-darken-1"><b>A web search application to travel internationally without
+              covid-19.</b>
+              
             </p>
 
             <br />
