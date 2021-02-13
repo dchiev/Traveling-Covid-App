@@ -1084,7 +1084,7 @@ class search extends React.Component {
                       aria-label="Search"
                     />
 
-                    <div class="card-action">
+                    <div class="card-action black-text">
                       <button>Submit</button>
                     </div>
                   </form>
