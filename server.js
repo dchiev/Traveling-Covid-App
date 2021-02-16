@@ -23,15 +23,10 @@ app.use(posts);
 const db = require("./config/keys").mongoURI;
 const smartPeople = require("./models");
 // Connect to MongoDB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/covidtravel1",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
-);
+mongoose
+  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch((err) => console.log(err));
 
 // Passport middleware
 app.use(passport.initialize());
