@@ -47,14 +47,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-/* function findAll(req, res) {
-  smartPeople.Posts.find()
-    .sort({ date: -1 })
-    .then((dbModel) => console.log(dbModel));
-}
-
-findAll();
- */
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

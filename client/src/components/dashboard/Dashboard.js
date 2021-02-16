@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Search from "./Search";
 import "./dashboardstyles.css";
-import Post from "./Post";
-import MakePost from "./MakePost"
+
 class Dashboard extends Component {
   onLogoutClick = (e) => {
     e.preventDefault();
@@ -22,12 +21,10 @@ class Dashboard extends Component {
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                Search for the country you want to travel to via Country Code:{" "}
+                Search for the country you want to travel:{" "}
               </p>
             </h4>
             <Search />
-            {/* <Post /> */}
-            {/* <MakePost /> */}
             <button
               style={{
                 width: "150px",
