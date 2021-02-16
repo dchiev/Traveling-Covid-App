@@ -17,8 +17,7 @@ app.use((req, res, next) => {
 }); // DB Config
 
 // routes
-app.use(users);
-app.use(posts);
+/* app.use(users); */
 
 const db = require("./config/keys").mongoURI;
 const smartPeople = require("./models");
@@ -33,19 +32,18 @@ app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
-
-// Routes
-app.use("/api/users", users);
-
-// Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
 }
+// Routes
+app.use("/api/users", users);
+app.use(posts);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+// Serve static assets if in production
 
 const port = process.env.PORT || 5000;
 
