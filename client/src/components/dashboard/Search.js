@@ -2,8 +2,6 @@ import React from "react";
 import API from "../../utils/API";
 import PostApi from "../../utils/postsAPI";
 import ResultsContainer from "./ResultsContainer";
-import Post from "./Post";
-import MakePost from "./MakePost";
 import postsAPI from "../../utils/postsAPI";
 
 const country_code = [
@@ -1001,7 +999,7 @@ class search extends React.Component {
     evt.preventDefault();
     let country = this.state.value;
     for (let i = 0; i < country_code.length; i++) {
-      if (country_code[i].fullName == country) {
+      if (country_code[i].fullName === country) {
         country = country_code[i].abbreviation;
       }
     }
@@ -1064,16 +1062,23 @@ class search extends React.Component {
             posts={this.state.posts}
           />
           <br />
-          <input type="text" onChange={this.updateInput} />
+          <input
+            type="text"
+            placeholder="Search for the Country You'd Like to Travel To:"
+            onChange={this.updateInput}
+          />
           <input type="submit" value="Submit" />
         </form>
-<br></br><br></br>
+        <br></br>
+        <br></br>
         <div>
-          <div class="row">
-            <div class="col-md">
-              <div class="card blue darken-1">
-                <div class="card-content white-text">
-                  <span class="card-title white-text"><b>We would love to hear from you</b></span>
+          <div className="row">
+            <div className="col-md">
+              <div className="card blue darken-1">
+                <div className="card-content white-text">
+                  <span className="card-title white-text">
+                    <b>Join the discussion</b>
+                  </span>
                   <form className="form-inline" onSubmit={this.handleSubmit}>
                     <br></br>
                     <input
@@ -1081,11 +1086,11 @@ class search extends React.Component {
                       onChange={this.handleChange}
                       className="form-control"
                       type="search"
-                      placeholder="Search"
+                      placeholder="What was your experience traveling in this country?"
                       aria-label="Search"
                     />
-                    
-                    <div class="card-action black-text">
+
+                    <div className="card-action black-text">
                       <button>Submit</button>
                     </div>
                   </form>
