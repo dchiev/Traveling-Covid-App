@@ -12,6 +12,7 @@ import Register from "./components/auth/Register";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import Post from "./components/Post";
+import "../src/App.css";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -44,7 +45,7 @@ function App() {
         <div
           className="App"
           style={{
-            backgroundImage: "url(/images/worldmap.png)",
+            backgroundImage: "url(/images/original_eco-travel-illustration.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover",
