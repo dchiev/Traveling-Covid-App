@@ -1,22 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
+import API from "../../utils/API";
+
 import { Card, Row, Col, Icon } from "react-materialize";
 import advisory1 from "../../images/advisory1.png";
 import advisory2 from "../../images/advisory2.png";
-import "./resultscontainerstyles.css";
 function ResultsContainer(props) {
-  const { cases, recomendations, posts } = props;
+  const { cases, searchCountry, recomendations, posts } = props;
+  const [setCountry] = useState([]);
+  useEffect(() => {
+    console.log("mounted");
+  }, []);
+  useEffect(() => {
+    console.log(props);
+  });
+  console.log("anything");
 
   return (
     <div>
       <Row>
         <Col>
           <Card
-            actions={[]}
-            className="blue-grey darken-1 results-card"
+            actions={[
+              <a key="1" href="#">
+                This is a link
+              </a>,
+              <a key="2" href="#">
+                This is a link
+              </a>,
+            ]}
+            className="blue-grey darken-1"
             closeIcon={<Icon>close</Icon>}
             revealIcon={<Icon>more_vert</Icon>}
             textClassName="white-text"
             title={!recomendations ? "" : recomendations.advisory.message}
+
+            /*    title={props.recomendations} */
           >
             {" "}
             <img
@@ -28,26 +46,28 @@ function ResultsContainer(props) {
                   : advisory2
               }
             />
-            <p>Country:</p>
-            <p>{!recomendations ? "" : recomendations.name}</p>
-            <p>Cases:</p> <p>{cases?.confirmed || ""}</p>
-            <p>Dead:</p>
-            <p>{cases?.dead || ""}</p>
+            <h5>Country:</h5>
+            <h5>{!recomendations ? "" : recomendations.name}</h5>
+            <h5>Cases:</h5> <h5>{cases?.confirmed || ""}</h5>
+            <h5>Dead:</h5>
+            <h5>{cases?.dead || ""}</h5>
           </Card>
         </Col>
       </Row>
       <div>
-        <div className="row">
-          <div className="col-md">
-            <div className="card blue darken-1">
-              <div className="card-content white-text">
-                <span className="card-title"></span>
-                <b>What Travelers are Experiencing:</b>
+        <div class="row">
+          <div class="col-md">
+            <div class="card blue darken-1">
+              <div class="card-content white-text">
+                <span class="card-title"></span>
                 {posts.map((userPost) => (
                   <Card textClassName="black-text">
                     <p>{userPost.text}</p>
                   </Card>
                 ))}
+                <p>Post text goes here</p>
+                <p>Posted by user:</p>
+                <p>Posted on:</p>
               </div>
             </div>
           </div>
