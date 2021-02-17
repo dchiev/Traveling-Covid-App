@@ -2,6 +2,10 @@ img {
   width: 100px;
 }
 
+.container .row {
+  margin: auto;
+}
+
 body {
   align-content: center;
 }
