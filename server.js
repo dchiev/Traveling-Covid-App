@@ -41,7 +41,7 @@ app.use("/api/users", users);
 app.use(posts);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // Serve static assets if in production
 
