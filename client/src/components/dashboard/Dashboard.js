@@ -21,7 +21,7 @@ class Dashboard extends Component {
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                Search for the country you want to travel:{" "}
+                Search for the country you'd like to travel to:{" "}
               </p>
             </h4>
             <Search />

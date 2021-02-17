@@ -20,21 +20,12 @@ function ResultsContainer(props) {
       <Row>
         <Col>
           <Card
-            actions={[
-              <a key="1" href="#">
-                This is a link
-              </a>,
-              <a key="2" href="#">
-                This is a link
-              </a>,
-            ]}
+            actions={[]}
             className="blue-grey darken-1"
             closeIcon={<Icon>close</Icon>}
             revealIcon={<Icon>more_vert</Icon>}
             textClassName="white-text"
             title={!recomendations ? "" : recomendations.advisory.message}
-
-            /*    title={props.recomendations} */
           >
             {" "}
             <img
@@ -47,7 +38,7 @@ function ResultsContainer(props) {
               }
             />
             <h5>Country:</h5>
-            <h5>{!recomendations ? "" : recomendations.name}</h5>
+            <h5>{("Country:", !recomendations ? "" : recomendations.name)}</h5>
             <h5>Cases:</h5> <h5>{cases?.confirmed || ""}</h5>
             <h5>Dead:</h5>
             <h5>{cases?.dead || ""}</h5>
@@ -59,15 +50,13 @@ function ResultsContainer(props) {
           <div class="col-md">
             <div class="card blue darken-1">
               <div class="card-content white-text">
+                <b>What Travelers Are Experiencing in This Country:</b>
                 <span class="card-title"></span>
                 {posts.map((userPost) => (
                   <Card textClassName="black-text">
                     <p>{userPost.text}</p>
                   </Card>
                 ))}
-                <p>Post text goes here</p>
-                <p>Posted by user:</p>
-                <p>Posted on:</p>
               </div>
             </div>
           </div>
