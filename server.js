@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // routes
 /* app.use(users); */
 
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGODB_URI || "mongodb://localhost/covidtravel1";
 const smartPeople = require("./models");
 // Connect to MongoDB
 mongoose
