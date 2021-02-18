@@ -7,17 +7,17 @@ class Navbar extends Component {
       <nav>
         <div className="nav-wrapper blue">
           <a href="#!" className="brand-logo center">
-            Safe Travels
+            Safe Travels!
           </a>
           <ul className="left hide-on-med-and-down">
             <li>
-              <a href="sass.html">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="badges.html">Components</a>
+              <a href="/">Searches</a>
             </li>
-            <li className="active">
-              <a href="collapsible.html">Forum</a>
+            <li>
+              <a href="/">About</a>
             </li>
           </ul>
         </div>
