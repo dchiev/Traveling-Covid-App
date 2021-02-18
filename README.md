@@ -1,4 +1,4 @@
-# Safe Travel!
+# Safe Travels!
 
 ## Overview
 An application that displays the covid-19 numbers for every country. As the covid situation nears a year, people are itching to travel again. This app displays each country's number of covid cases, number of dead by covid, adivisory status and discussion posts from users.
