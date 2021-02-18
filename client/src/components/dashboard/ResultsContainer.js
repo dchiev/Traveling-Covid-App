@@ -55,6 +55,7 @@ function ResultsContainer(props) {
                 {posts.map((userPost) => (
                   <Card textClassName="black-text">
                     <p>{userPost.text}</p>
+                    <p>{"Date: " + userPost.date}</p>
                   </Card>
                 ))}
               </div>
