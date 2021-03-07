@@ -11,7 +11,6 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Post from "./components/Post";
 import "../src/App.css";
 
 // Check for token to keep user logged in
@@ -45,7 +44,8 @@ function App() {
         <div
           className="App"
           style={{
-            backgroundImage: "url(/images/original_eco-travel-illustration.jpg)",
+            backgroundImage:
+              "url(/images/original_eco-travel-illustration.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover",
@@ -55,7 +55,7 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/post" component={Post} />
+
           <Switch>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>

@@ -1,5 +1,4 @@
 import React, { Component, useState, useEffect } from "react";
-import API from "../../utils/API";
 
 import { Card, Row, Col, Icon } from "react-materialize";
 import advisory1 from "../../images/advisory1.png";
@@ -7,13 +6,10 @@ import advisory2 from "../../images/advisory2.png";
 function ResultsContainer(props) {
   const { cases, searchCountry, recomendations, posts } = props;
   const [setCountry] = useState([]);
-  useEffect(() => {
-    console.log("mounted");
-  }, []);
+  useEffect(() => {}, []);
   useEffect(() => {
     console.log(props);
   });
-  console.log("anything");
 
   return (
     <div>
